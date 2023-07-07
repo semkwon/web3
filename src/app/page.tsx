@@ -3,8 +3,8 @@
 import axios from "axios";
 import { NextPage } from "next";
 import { FormEventHandler, useState } from "react";
-import { personal } from "./lib/client";
 import { v4 as uuidv4 } from "uuid";
+import { ethereum, personal } from "./lib/client";
 
 const Home: NextPage = () => {
   const [email, setEmail] = useState<string>("");
@@ -15,7 +15,7 @@ const Home: NextPage = () => {
 
       if (!email) return;
 
-      const accounts = await window.ethereum?.request({
+      const accounts: any = await ethereum?.request({
         method: "eth_requestAccounts",
       });
 
