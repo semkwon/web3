@@ -26,7 +26,7 @@ const Home: NextPage = () => {
           "Pass"
         );
 
-        await axios.post("http://localhost:3000/api/user", {
+        await axios.post(`${process.env.NEXT_PUBLIC_URL}/api/user`, {
           account: accounts[0],
           email,
           signedToken,
